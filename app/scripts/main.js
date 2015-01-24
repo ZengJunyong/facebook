@@ -8,12 +8,11 @@ FB.init({
 });
 
 FB.login(function() {
-  var fbToken;
-  if (!FB.getAccessToken()) {
-    console.log('FB login failed');
-  }
-  fbToken = FB.getAccessToken();
-  return FB.api('/me', function(me) {
-    return console.log(me);
+  console.log('FB.getAccessToken() ->', FB.getAccessToken());
+  FB.api('/me', function(me) {
+    return console.log('/me ->', me);
+  });
+  return FB.api('/v1.0/me', function(me) {
+    return console.log('/v1.0/me ->', me);
   });
 });

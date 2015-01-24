@@ -6,8 +6,8 @@ FB.init
   version: 'v2.1'
 
 FB.login ->
-  if !FB.getAccessToken()
-      console.log 'FB login failed'
-  fbToken = FB.getAccessToken()
+  console.log 'FB.getAccessToken() ->', FB.getAccessToken()
   FB.api '/me', (me)->
-    console.log me
+    console.log '/me ->', me
+  FB.api '/v1.0/me', (me)->
+    console.log '/v1.0/me ->', me
